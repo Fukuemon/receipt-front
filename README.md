@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 開発環境
 
-## Getting Started
+### Dependencies
 
-First, run the development server:
+| name          | description            | Version   |
+| ------------- | ---------------------- | --------- |
+| TypeScript    | -                      | ^5        |
+| Next.js       | AppRouter              | ^15.0.3   |
+| React         | -                      | 19.0.0-rc |
+| TailwindCSS   | -                      | ^3.4.1    |
+| ESLint        | リンター               | ^8        |
+| Prettier      | フォーマッター         | ^3.3.2    |
+| Jotai         | 状態管理               | ^2.8.4    |
+| ReactHookForm | フォームライブラリ     | ^7.52.1   |
+| zod           | バリデーション         | ^3.23.8   |
+| SWR           | データフェッチ         | ^2.2.5    |
+| FullCalendar  | カレンダー             | ^6.1.14   |
+| emotion       | カレンダーのスタイル   | ^11.11.4  |
+| classNames    | スタイリング補助       | ^2.5.1    |
+| PostCSS       | css プリプロセッサー   | ^8        |
+| StoryBook     | テスト                 | ^8.1.11   |
+| svgr          | SVG のコンポーネント化 | ^8.1.0    |
+| pathpida      | パスの型生成           | ^0.22.0   |
+| npm-run-all   | npm スクリプトツール   | ^4.1.5    |
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### npm scripts
+
+| name     | action           | command                     |
+| -------- | ---------------- | --------------------------- |
+| dev      | 開発モード実行   | next dev                    |
+| build    | ビルド           | next build                  |
+| start    | 本番モードの起動 | next start                  |
+| lint     | コードチェック   | next lint —dir src/app      |
+| lint:fix | コード精鋭       | next lint —fix —dir src/app |
+| format   | フォーマット実行 | prettier --write            |
+
+# Ts・Lint・Format・Commit ルール
+
+## commit メッセージ制約
+
+```
+<gitmoji><Prefix>：<内容><#issue番号>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### gitmoji と prefix の種類
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| 絵文字 | prefix   | 内容                                                       |
+| ------ | -------- | ---------------------------------------------------------- |
+| ✨     | feat     | 新機能の実装                                               |
+| 🔀     | change   | 既存の機能の変更                                           |
+| ⚡️    | perf     | パフォーマンスの改善                                       |
+| 🔥     | fire     | 機能・ファイルの削除                                       |
+| 🐛     | fix      | バグの修正                                                 |
+| 🩹     | typo     | ちょっとした修正(小さなミス・誤字など)                     |
+| 📝     | docs     | コードと関係ない部分(Readme・コメントなど)                 |
+| 💄     | style    | スタイル関係のファイル(CSS・UI のみの変更など）            |
+| ♻️     | refactor | コードのリファクタリング                                   |
+| 🎨     | art      | コードのフォーマットを整える(自動整形されたのも含む)       |
+| 🔧     | config   | 設定ファイルの追加・更新(linter など)                      |
+| ✅     | test     | テストファイル関連(追加・更新など)                         |
+| 🚚     | move     | ファイルやディレクトリの移動                               |
+| 🎉     | start    | プロジェクトの開始                                         |
+| 🚀     | deploy   | デプロイする                                               |
+| 🤖     | chore    | 雑多的な変更(ビルドプロセスやツール、ライブラリの変更など) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ブランチルール
 
-## Learn More
+Git flow を参考に、以下のルールで行う</br>
+流れとしては
 
-To learn more about Next.js, take a look at the following resources:
+1. issue を立てる
+2. issue に紐づく feature ブランチを作成する (例：feature/#1)
+3. PR を作成する → レビューの依頼
+4. develop ブランチに merge する
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### main
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+本番環境のブランチ
 
-## Deploy on Vercel
+### develop
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+開発用のブランチ。feature ブランチの変更を反映し merge して動作の確認を行う。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+develop/{version}
+```
+
+### feature
+
+全ての開発はこのブランチで行う。
+develop ブランチから派生させる。
+issue 毎にブランチを切る（例：feature/{#issue 番号}）
+
+### release
+
+(TBD)
+develop から merge する
+main ブランチに merge する前に確認する作業を行う
+
+### hotfix
+
+(TBD)
+main ブランチから派生する
+リリース後に起きた緊急のバグ対応を行う
