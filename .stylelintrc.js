@@ -1,13 +1,23 @@
 module.exports = {
+  plugins: [
+    // displayプロパティの値によって無視されるプロパティを記載していないか検知するルールを追加するプラグイン
+    'stylelint-declaration-block-no-ignored-properties',
+  ],
   extends: [
-    "stylelint-config-recess-order",
-    "stylelint-config-recommended-scss",
+    // プロパティの記述順に関するルール
+    'stylelint-config-recess-order',
+    // 一般的なルール
+    'stylelint-config-standard',
   ],
   rules: {
-    // ::before, ::afterのコロンを2つにする
-    "selector-pseudo-element-colon-notation": "double",
-    // シングルクォーテーションに統一
-    "string-quotes": "single",
+    'plugin/declaration-block-no-ignored-properties': true,
+    'at-rule-no-unknown': [
+      // tailwindcssの@ruleを無視する
+      true,
+      {
+        ignoreAtRules: ['tailwind'],
+      },
+    ],
   },
-  ignoreFiles: ["**/node_modules/**"],
-};
+  ignoreFiles: ['**/node_modules/**'],
+}
