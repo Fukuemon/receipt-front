@@ -14,7 +14,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "plop": "plop"
   },
   "dependencies": {
     "next": "15.0.3",
@@ -44,6 +45,7 @@
     "eslint-plugin-storybook": "^0.11.1",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "playwright": "^1.49.0",
+    "plop": "^4.0.1",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prettier-plugin-organize-imports": "^4.1.0",
