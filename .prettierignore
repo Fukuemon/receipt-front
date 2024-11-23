@@ -5,6 +5,3 @@ dist/
 out/
 public/
 package-lock.json
-next.config.js
-vitest.workspace.ts
-plop-templates/
