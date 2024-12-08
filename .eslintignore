@@ -1,0 +1,15 @@
+node_modules/
+changelog.config.js
+.next/
+build/
+dist/
+out/
+public/
+package-lock.json
+vite.config.ts
+next.config.js
+tsconfig.json
+src/env.d.ts
+*.cjs
+*.mjs
+playwright.config.ts

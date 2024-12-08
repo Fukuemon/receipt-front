@@ -1,3 +1,62 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:tailwindcss/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    // 型のインポート時にtype importを強制させる。
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        // type importを強制させる。
+        "prefer": "type-imports",
+        // 自動修正を行う。
+        "fixStyle": "separate-type-imports"
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        // 全ての変数を対象にする。
+        "vars": "all",
+        // 変数名が_で始まる場合は無視する。
+        "varsIgnorePattern": "^_",
+        // 全ての引数を対象にする。
+        "args": "after-used",
+        // 引数名が_で始まる場合は無視する。
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    // falsy値を比較せずに判定すると警告を出す。
+    "@typescript-eslint/strict-boolean-expressions": [
+      "error",
+      {
+        "allowString": false,
+        "allowNumber": false,
+        "allowNullableObject": false,
+        "allowNullableBoolean": false
+      }
+    ],
+    "object-shorthand": "error", // オブジェクトリテラルのメソッドとプロパティの省略記法を強制する。
+    "react/jsx-boolean-value": "error", // JSXのプロパティの値が真偽値の場合、省略記法を強制する。
+    "react/jsx-curly-brace-presence": "error", // 不要なカーリーブレース（波括弧）の禁止
+    "react/self-closing-comp": [
+      // 子要素を持たないコンポーネントの不必要な閉じタグの禁止
+      "error",
+      {
+        "component": true,
+        "html": false
+      }
+    ],
+    "react/jsx-sort-props": "error" // JSXのプロパティをアルファベット順にソートする。
+  }
 }
