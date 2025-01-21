@@ -35,7 +35,14 @@ export default function (plop) {
       {
         type: 'input',
         name: 'page',
-        message: '? どのディレクトリに作成しますか？ >> src/app/ （ex: about):',
+        message:
+          '? どのディレクトリに作成しますか？ >> src/app/  （ex: about):',
+      },
+      {
+        type: 'input',
+        name: 'path',
+        message:
+          '? どのディレクトリに作成しますか？ >> src/app/{{page}}/_components/ （ex: header):',
       },
       {
         type: 'input',
@@ -43,7 +50,18 @@ export default function (plop) {
         message: '? コンポーネントの名前を入力 (ex: header):',
       },
     ],
-    actions: [],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/app/{{kebabCase page}}/_components/{{path}}/{{pascalCase name}}/{{pascalCase name}}.tsx',
+        templateFile: 'plop-templates/components/component.tsx.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/app/{{kebabCase page}}/_components/{{path}}/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
+        templateFile: 'plop-templates/components/stories.tsx.hbs',
+      },
+    ],
   })
   plop.setGenerator('component in page(ContainerとPresenter)', {
     description: 'page内でのコンポーネント(ContainerとPresenter)',
@@ -56,6 +74,12 @@ export default function (plop) {
       },
       {
         type: 'input',
+        name: 'path',
+        message:
+          '? どのディレクトリに作成しますか？ >> src/app/{{page}}/_components/ （ex: header):',
+      },
+      {
+        type: 'input',
         name: 'name',
         message: '? コンポーネントの名前を入力 (ex: header):',
       },
@@ -63,19 +87,25 @@ export default function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'src/app/{{kebabCase page}}/_components/{{pascalCase name}}/{{pascalCase name}}Container.tsx',
+        path: 'src/app/{{kebabCase page}}/_components/{{path}}/{{pascalCase name}}/{{pascalCase name}}Container.tsx',
         templateFile:
           'plop-templates/components/container-presenter/container.tsx.hbs',
       },
       {
         type: 'add',
-        path: 'src/app/{{kebabCase page}}/_components/{{pascalCase name}}/{{pascalCase name}}Presenter.tsx',
+        path: 'src/app/{{kebabCase page}}/_components/{{path}}/{{pascalCase name}}/{{pascalCase name}}Presenter.tsx',
         templateFile:
           'plop-templates/components/container-presenter/presenter.tsx.hbs',
       },
       {
         type: 'add',
-        path: 'src/app/{{kebabCase page}}/_components/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
+        path: 'src/app/{{kebabCase page}}/_components/{{path}}/{{pascalCase name}}/index.tsx',
+        templateFile:
+          'plop-templates/components/container-presenter/index.tsx.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/app/{{kebabCase page}}/_components/{{path}}/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
         templateFile:
           'plop-templates/components/container-presenter/stories.tsx.hbs',
       },

@@ -1,0 +1,39 @@
+:root {
+  --max-container-width: 600px;
+  --brand-linear: linear-gradient(
+    122deg,
+    #00c26e 0%,
+    #00a6cb 31.57%,
+    #2d8df0 44.89%,
+    #8878e2 66.67%,
+    #ec77c4 97.4%
+  );
+  --tap-background: linear-gradient(
+    180deg,
+    #e9e9eb 0%,
+    rgb(233 233 235 / 0%) 100%
+  );
+  --text-default: #09090b;
+  --text-critical: #c11111;
+  --background-default: #fff;
+  --correct-bg: #e6fdf0;
+  --correct-main: #00ad64;
+  --non-active-main: #ffb800;
+  --non-active-bg: #fff8e6;
+  --incorrect-bg: #fff2f2;
+  --incorrect-main: #c11111;
+  --action-bg: #edf3ff;
+  --action-main: #4d89c0;
+  --gray-1000: #09090b;
+  --gray-500: #71737f;
+  --gray-400: #bcbdc1;
+  --gray-200: #e9e9eb;
+  --gray-100: #f0f1f2;
+  --gray-10: #f5f6f7;
+  --gray-0: #fff;
+
+  /* z-index */
+  --z-index-modal: 10;
+  --z-index-dropdown: 9;
+  --z-index-header: 8;
+}

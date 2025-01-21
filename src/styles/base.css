@@ -1,0 +1,12 @@
+body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body,
+code,
+pre,
+button,
+input {
+  font-family: var(--font-m-plus-1p), sans-serif;
+}

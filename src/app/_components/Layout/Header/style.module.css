@@ -1,0 +1,33 @@
+.headerContainer {
+  display: grid;
+  grid-template-columns: 0 1fr;
+  grid-template-rows: auto 1fr;
+  width: 100%;
+
+  & .header {
+    align-items: center;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    background-color: var(--gray-0);
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  & .content {
+    position: sticky;
+    top: 60px;
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
+  }
+
+  & ._isMenubarOpen {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+  }
+}
