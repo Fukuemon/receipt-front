@@ -1,0 +1,44 @@
+.select {
+  border: 1px solid var(--border-default, #e9e9eb);
+  border-radius: 14px;
+  position: relative;
+
+  & .inner {
+    border-radius: 14px;
+    color: var(--text-emphasis);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 40px 12px 20px;
+    position: relative;
+    width: auto;
+
+    & .option {
+      color: var(--gray-1000);
+    }
+
+    &:disabled {
+      background-color: var(--gray-100);
+      border: 1px solid var(--gray-100);
+      color: rgb(0 0 0 / 0%);
+
+      &:hover {
+        border-color: var(--gray-100);
+      }
+
+      &._selected {
+        color: var(--gray-200);
+      }
+    }
+  }
+
+  & .arrow {
+    color: var(--gray-500);
+    display: flex;
+    pointer-events: none;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
