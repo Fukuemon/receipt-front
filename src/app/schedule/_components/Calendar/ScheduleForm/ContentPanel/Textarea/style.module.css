@@ -1,0 +1,22 @@
+.textareaEdit {
+  padding: 0 20px;
+
+  & .heading {
+    color: var(--text-secondary, #71737f);
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  & .textarea {
+    font-size: 24px;
+    height: 400px;
+    resize: none;
+    width: 100%;
+
+    &::placeholder {
+      color: var(--text-disabled, #bcbdc1);
+    }
+  }
+}

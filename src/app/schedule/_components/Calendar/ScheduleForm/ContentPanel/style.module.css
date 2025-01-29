@@ -1,0 +1,7 @@
+.createPanel {
+  padding: 20px 0;
+
+  & .container {
+    margin: 0 auto;
+  }
+}

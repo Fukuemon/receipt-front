@@ -1,0 +1,50 @@
+.serviceCodeEdit {
+  padding: 0 20px;
+
+  & .heading {
+    color: var(--text-secondary, #71737f);
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  & .content {
+    display: grid;
+    gap: 12px;
+
+    & .option {
+      border: 1px solid var(--border-default, #e9e9eb);
+      border-radius: 12px;
+      cursor: pointer;
+      display: grid;
+      flex: 1;
+      gap: 8px;
+      padding: 16px 20px;
+
+      & .label {
+        font-size: 18px;
+      }
+
+      &:has(:checked) {
+        border: 2px solid var(--action-main);
+        padding: 15px 19px;
+
+        &::before {
+          border-radius: 10px;
+          box-shadow: none;
+          height: calc(100% - 4px);
+          width: calc(100% - 4px);
+        }
+
+        & .label {
+          font-weight: bold;
+        }
+      }
+
+      & .input {
+        display: none;
+      }
+    }
+  }
+}

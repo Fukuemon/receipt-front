@@ -1,0 +1,23 @@
+.scheduleDateEdit {
+  padding: 0 20px;
+  display: grid;
+  gap: 20px;
+
+  & .title {
+    color: var(--text-secondary, #71737f);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  & .inputs {
+    display: grid;
+    gap: 16px;
+    z-index: 0;
+
+    & .row {
+      display: flex;
+      gap: 8px;
+    }
+  }
+}
