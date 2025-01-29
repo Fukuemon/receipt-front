@@ -1,0 +1,26 @@
+.visitScheduleEdit {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) 1fr;
+
+  & .selectPanel {
+    max-height: 600px;
+    overflow-y: auto;
+  }
+
+  & .editPanel {
+    min-width: 0;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+}
+
+& .headerCntent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  & .title {
+    font-weight: bold;
+  }
+}

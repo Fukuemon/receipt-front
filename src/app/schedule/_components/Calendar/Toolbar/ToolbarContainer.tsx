@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 
-import { DatePicker } from '@/app/_components/Base/DatePicker'
+import { DatePicker } from '@/app/_components/Form/DatePicker'
 import type { Control } from 'react-hook-form'
 import { LeftControls } from './LeftControls/LeftControls'
 type Props = {

@@ -5,9 +5,10 @@ module.exports = {
   ],
   extends: [
     // プロパティの記述順に関するルール
-    'stylelint-config-recess-order',
     // 一般的なルール
     'stylelint-config-standard',
+    // CSS Modules対応のルール
+    'stylelint-config-css-modules',
   ],
   rules: {
     'plugin/declaration-block-no-ignored-properties': true,
@@ -16,6 +17,14 @@ module.exports = {
       true,
       {
         ignoreAtRules: ['tailwind'],
+      },
+    ],
+    // クラス名にキャメルケースを許容する
+    'selector-class-pattern': [
+      '^[a-zA-Z_][a-zA-Z0-9_]*$',
+      {
+        message:
+          'クラス名はキャメルケース（例: myClassName）を使用してください。',
       },
     ],
   },
