@@ -46,6 +46,7 @@ export const ScheduleFormContainer: FC<ScheduleFormProps> = ({
   onSubmit,
 }) => {
   const defaultStartDate = startDate ?? new Date()
+  defaultStartDate.setHours(9, 0, 0, 0)
   const [currentId, setCurrentId] = useState<
     ScheduleKey | VisitScheduleKey | undefined
   >(ScheduleKey.ScheduleDate)
