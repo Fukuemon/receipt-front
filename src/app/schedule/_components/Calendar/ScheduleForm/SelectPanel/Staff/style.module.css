@@ -1,0 +1,10 @@
+.optionSelect {
+  &[data-empty='true'] {
+    color: var(--text-disabled, #bcbdc1);
+  }
+
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,14 @@
+.dateSelect {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  gap: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  & .title {
+    font-size: 12px;
+    font-weight: normal;
+  }
+}
