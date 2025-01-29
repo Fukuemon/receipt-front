@@ -1,8 +1,7 @@
-// useStaffList.ts
-
 import type { Staff } from '@/schema/staff'
 import { staffSchema } from '@/schema/staff'
 import { useMemo } from 'react'
+import type { SWRConfiguration } from 'swr'
 import { createFetcher, useFetchList } from './client'
 
 export type StaffResponse = {
@@ -18,12 +17,7 @@ const staffFetcher = createFetcher<Staff, StaffResponse>(
   }),
 )
 
-/**
- * Staff一覧を取得するカスタムフック
- * @param name - オプションの検索条件（部分一致）
- * @returns フィルタリングされたStaffデータ、ロード状態、エラー情報
- */
-export const useStaffList = (name?: string) => {
+export const useStaffList = (name?: string, swrOptions?: SWRConfiguration) => {
   const baseUrl = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_URL
   if (baseUrl == null) {
     throw new Error('API URL が定義されていません')
@@ -35,7 +29,7 @@ export const useStaffList = (name?: string) => {
     data: staffs,
     error,
     isLoading,
-  } = useFetchList<Staff>(requestUrl, staffFetcher)
+  } = useFetchList<Staff>(requestUrl, staffFetcher, swrOptions)
 
   const filteredStaffs = useMemo(() => {
     if (typeof name !== 'string') {

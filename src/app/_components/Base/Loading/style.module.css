@@ -1,8 +1,9 @@
 .loading {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* ビューポート全体の高さを占める */
+  height: 70vh; /* ビューポート全体の高さを占める */
   background-color: rgb(255 255 255 / 80%); /* 背景を半透明に */
 }
 
@@ -24,4 +25,11 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.description {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #3498db;
 }

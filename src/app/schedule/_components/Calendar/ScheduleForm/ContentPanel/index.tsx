@@ -58,7 +58,7 @@ export const CreatePanel: FC<CreatePanelProps> = ({
           />
         )}
         {currentId === VisitScheduleKey.PatientName && (
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<Loading description="患者情報を取得中..." />}>
             <PatientPanel
               control={control}
               name={VisitScheduleKey.PatientName}

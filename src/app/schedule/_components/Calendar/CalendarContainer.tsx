@@ -194,7 +194,7 @@ export const Calendar = () => {
         {/* カレンダー */}
         <div className="grow overflow-hidden">
           {isLoading ? (
-            <Loading />
+            <Loading description="カレンダーを表示中..." />
           ) : (
             <DayGridCalendar
               currentCalendarDate={currentCalendarDate}

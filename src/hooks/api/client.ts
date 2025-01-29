@@ -1,3 +1,4 @@
+import type { SWRConfiguration } from 'swr'
 import useSWR from 'swr'
 import type { ZodType } from 'zod'
 
@@ -43,8 +44,9 @@ export const createFetcher =
 export const useFetchList = <T>(
   url: string,
   fetcher: (url: string) => Promise<T[]>,
+  options?: SWRConfiguration,
 ) => {
-  const { data, error, mutate } = useSWR<T[], Error>(url, fetcher)
+  const { data, error, mutate } = useSWR<T[], Error>(url, fetcher, options)
 
   return {
     data,

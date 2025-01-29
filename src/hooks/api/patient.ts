@@ -1,7 +1,6 @@
-// usePatientList.ts
-
 import { patientSchema, type Patient } from '@/schema/patient'
 import { useMemo } from 'react'
+import type { SWRConfiguration } from 'swr'
 import { createFetcher, useFetchList } from './client'
 
 export type PatientResponse = {
@@ -15,12 +14,10 @@ const patientFetcher = createFetcher<Patient, PatientResponse>(
   }),
 )
 
-/**
- * Patient一覧を取得するカスタムフック
- * @param name - オプションの検索条件（部分一致）
- * @returns フィルタリングされたPatientデータ、ロード状態、エラー情報
- */
-export const usePatientList = (name?: string) => {
+export const usePatientList = (
+  name?: string,
+  swrOptions?: SWRConfiguration,
+) => {
   const baseUrl = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_URL
   if (baseUrl == null) {
     throw new Error('API URL が定義されていません')
@@ -32,7 +29,7 @@ export const usePatientList = (name?: string) => {
     data: patients,
     error,
     isLoading,
-  } = useFetchList<Patient>(requestUrl, patientFetcher)
+  } = useFetchList<Patient>(requestUrl, patientFetcher, swrOptions)
 
   const filteredPatients = useMemo(() => {
     if (typeof name !== 'string') {

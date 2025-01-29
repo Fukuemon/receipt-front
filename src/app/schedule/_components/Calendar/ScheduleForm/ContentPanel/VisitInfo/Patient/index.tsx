@@ -30,8 +30,10 @@ export const PatientPanel = <T extends FieldValues>({
     setSearchPatient(value)
   }, 500)
 
-  const { data: patientsData, error: patientError } =
-    usePatientList(searchPatient)
+  const { data: patientsData, error: patientError } = usePatientList(
+    searchPatient,
+    { suspense: true },
+  )
 
   const patients: Patient[] = patientsData ?? []
 
