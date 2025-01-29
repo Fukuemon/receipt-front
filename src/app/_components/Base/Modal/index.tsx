@@ -60,6 +60,7 @@ const Closure = ({
   return (
     <Button
       disabled={disabled}
+      isLoading={disabled}
       onClick={() => {
         if (disabled == true) return
         if (onClick != null) {
