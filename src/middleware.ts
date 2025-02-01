@@ -5,4 +5,5 @@ export function middleware(req: NextRequest) {
   if (req.nextUrl.pathname === '/') {
     return NextResponse.redirect(new URL('/schedule', req.url))
   }
+  return NextResponse.next()
 }
