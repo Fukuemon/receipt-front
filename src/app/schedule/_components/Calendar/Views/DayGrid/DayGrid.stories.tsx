@@ -13,6 +13,5 @@ type Story = StoryObj<T>
 export const Default: Story = {
   args: {
     currentCalendarView: 'dayGridMonth',
-    plugins: [],
   },
 }

@@ -1,0 +1,35 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* ビューポート全体の高さを占める */
+  background-color: rgb(255 255 255 / 80%); /* 背景を半透明に */
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #f3f3f3; /* 背景用の薄いボーダー */
+  border-top: 6px solid #3498db; /* アニメーション部分のボーダー */
+  border-radius: 50%; /* 完全な円形にする */
+  animation: spin 1s linear infinite; /* 回転アニメーションの設定 */
+}
+
+/* 回転アニメーションの定義 */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.description {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #3498db;
+}

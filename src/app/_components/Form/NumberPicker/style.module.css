@@ -1,0 +1,112 @@
+.numberPicker {
+  font-weight: normal;
+
+  &[data-wide="true"] {
+    width: 100%;
+  }
+
+  & .container {
+    background: linear-gradient(180deg, #e9e9eb 0%, rgb(233 233 235 / 0%) 100%);
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column;
+    height: 56px;
+    justify-content: center;
+    padding: 0 16px;
+    position: relative;
+    transition: all 0.1s ease-in;
+    width: 320px;
+
+    &[data-wide="true"] {
+      width: 100%;
+    }
+
+    &::after {
+      background-color: var(--background-default);
+      border-radius: 14px;
+      box-shadow: 0 1px 2px 0 #e5e5e8;
+      content: "";
+      height: calc(100% - 2px);
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.1s ease-in;
+      width: calc(100% - 2px);
+    }
+
+    &:focus-within {
+      background: #edf3ff;
+
+      &::after {
+        border-radius: 13px;
+        box-shadow: none;
+        height: calc(100% - 4px);
+        width: calc(100% - 4px);
+      }
+    }
+
+    & .label {
+      color: var(--text-secondary);
+      font-size: 15px;
+      margin-top: 0;
+      pointer-events: none;
+      transition: all 0.1s ease-in;
+      z-index: 1;
+    }
+
+    & .input {
+      background: none;
+      border: none;
+      box-sizing: border-box;
+      font-size: 15px;
+      height: 100%;
+      left: 0;
+      opacity: 0;
+      outline: 0;
+      padding: 24px 16px 7px;
+      position: absolute;
+      resize: none;
+      top: 0;
+      transition: all 0.1s ease-in;
+      width: 100%;
+      z-index: 1;
+
+      &:not([value=""]),
+      &:focus {
+        opacity: 1;
+
+        & + .label {
+          font-size: 11px;
+          margin-top: -18px;
+        }
+      }
+
+      &::-webkit-calendar-picker-indicator {
+        appearance: none;
+        opacity: 0;
+      }
+    }
+
+    & .icon {
+      display: grid;
+      height: 40px;
+      inset: 0;
+      margin: auto;
+      margin-right: 0;
+      place-items: center;
+      pointer-events: none;
+      position: absolute;
+      right: 6px;
+      width: 40px;
+      z-index: 1;
+    }
+  }
+
+  & .error {
+    color: var(--incorrect-main);
+    font-size: 12px;
+    margin-top: 4px;
+  }
+}

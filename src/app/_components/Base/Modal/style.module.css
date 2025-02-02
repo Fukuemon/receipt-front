@@ -1,0 +1,97 @@
+.overlay {
+  backdrop-filter: blur(16px);
+  background: rgb(0 0 0 / 56%);
+  height: 100dvh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-index-modal);
+}
+
+.unstyledModal {
+  display: flex;
+  height: 90dvh;
+  left: 50%;
+  max-width: 480px;
+  overflow: auto;
+  padding: 12px;
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  z-index: var(--z-index-modal);
+
+  @media (--bp-lg) {
+    height: fit-content;
+    height: 100%;
+    left: 50%;
+    top: 50%;
+    transition: position 0.2s ease-in-out;
+  }
+}
+
+.modal {
+  background-color: var(--gray-0);
+  border-radius: 12px 12px 0 0;
+  height: 98dvh;
+  left: 50%;
+  margin-top: 1dvh;
+  overflow: auto;
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  z-index: var(--z-index-modal);
+
+  @media (--bp-lg) {
+    border-radius: 24px;
+    height: fit-content;
+    left: 50%;
+    max-height: 90dvh;
+    top: 50%;
+    transition: position 0.2s ease-in-out;
+    width: 720px;
+  }
+
+  & .header {
+    align-items: center;
+    background-color: var(--gray-0);
+    border-bottom: 1px solid #f1f2f4;
+    border-radius: 24px 24px 0 0;
+    display: flex;
+    gap: 16px;
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    z-index: var(--z-index-header);
+
+    & .heading {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    & .closeButton {
+      border-radius: 8px;
+      display: grid;
+      padding: 8px;
+      place-items: center;
+
+      &:hover {
+        background-color: var(--background-bg-surface-hover);
+      }
+    }
+  }
+
+  & .stickyFooter {
+    background: var(--background-surface, #fff);
+    border-radius: 0 0 24px 24px;
+    border-top: 1px solid var(--border-divider, #f1f2f4);
+    bottom: 0;
+    display: flex;
+    padding: 16px 20px;
+    position: sticky;
+
+    & > *:last-child {
+      margin-left: auto;
+    }
+  }
+}

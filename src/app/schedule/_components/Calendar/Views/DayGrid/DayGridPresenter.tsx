@@ -59,7 +59,6 @@ export const DayGridPresenter: FC<CalendarPresenterProps> = ({
         textColor: calendar.textColor,
       })
     })
-    console.log(eventSources)
   }
 
   return (

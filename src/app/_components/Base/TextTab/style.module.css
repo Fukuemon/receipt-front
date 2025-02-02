@@ -1,0 +1,59 @@
+.textTab {
+  & .tabs {
+    background: var(--gray-10);
+    border: 1px solid var(--gray-100);
+    border-radius: 12px;
+    box-sizing: border-box;
+    display: flex;
+    gap: 4px;
+    height: 48px;
+    overflow: hidden;
+    padding: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+    width: 100%;
+
+    &._white {
+      background: var(--gray-0);
+      border: 1px solid var(--gray-0);
+    }
+
+    & .tab {
+      align-items: center;
+      color: var(--gray-400);
+      cursor: pointer;
+      display: flex;
+      flex: 1;
+      font-size: 15px;
+      font-weight: bold;
+      grid-row: 1;
+      justify-content: center;
+      position: relative;
+      -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+      text-align: center;
+      transition: inherit;
+
+      &._white {
+        color: var(--text-secondary);
+      }
+    }
+
+    & .tabActive {
+      color: var(--gray-1000);
+    }
+
+    & .bar {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 4%);
+      content: "";
+      height: 42px;
+      position: absolute;
+      top: 2px;
+
+      &._white {
+        background: var(--background-surface-secondary);
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: grid;
+  width: 100%;
+
+  & .tableCell {
+    display: grid;
+    font-size: 15px;
+    padding: 8px 0;
+    text-align-last: left;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &[data-expand="true"] {
+      width: 100%;
+    }
+
+    & .icon {
+      color: var(--icon-tertiary);
+      display: block;
+    }
+  }
+
+  .tableHeader {
+    display: grid;
+
+    & .tableCell {
+      font-size: 15px;
+      padding: 8px 0;
+    }
+  }
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  &._sticky .tableCell:first-child {
+    left: 0;
+    position: sticky;
+  }
+}
+
+.tableRow {
+  align-items: center;
+  background: var(--background-surface, #fff);
+  border-bottom: 1px solid var(--border-divider, #f1f2f4);
+  display: grid;
+  gap: 20px;
+  padding: 0 20px;
+}
